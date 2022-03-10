@@ -1,0 +1,403 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --font-primary: serif;
+  --font-secondary: sans-serif;
+  --font-action: monospace;
+}
+
+/* --------------- */
+/* MENU HAMBURGUER */
+/* --------------- */
+
+.hamburguer {
+  background-color: #6c19d8;
+  width: 3rem;
+  height: 3rem;
+  right: 2rem;
+  top: 2rem;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.line {
+  height: 3px;
+  transition: all 0.7s 0.5s;
+}
+
+.show-menu #line1 {
+  transform: rotate(45deg) translate(0.3rem, 0.45rem);
+}
+
+.show-menu #line2 {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.show-menu #line3 {
+  transform: rotate(-45deg) translate(0.3rem, -0.45rem);
+}
+
+.hamburguer span {
+  font-family: var(--font-action);
+  width: 6rem;
+  height: 2.5rem;
+  left: -8rem;
+  transition: all 0.5s 0.5s;
+  opacity: 0;
+}
+
+.hamburguer span::before {
+  position: absolute;
+  content: "";
+  border-right: 1rem solid transparent;
+  border-top: 0.6rem solid transparent;
+  border-left: 1rem solid #ccc;
+  border-bottom: 0.6rem solid transparent;
+  left: 6rem;
+}
+
+.show-menu .hamburguer:hover span {
+  opacity: 1;
+}
+
+/* ----------- */
+/* HEADER FACE */
+/* ----------- */
+
+.img-wrapper {
+  background-image: url("img/bg1.jpg");
+  background-color: #f00;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  animation: zoom 20s;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.img-wrapper img {
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.banner {
+  top: 35%;
+  margin: 0 10%;
+}
+
+.banner h1 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-primary);
+  color: #fff;
+  text-shadow: 0.6rem 0.5rem 4px rgba(0, 0, 0, 0.35);
+  animation: movebanner 2.5s 0.2s;
+}
+
+.banner h2 {
+  font-family: var(--font-secondary);
+  font-weight: var(--font-primary);
+  color: #fff;
+  text-shadow: 0.6rem 0.5rem 4px rgba(0, 0, 0, 0.35);
+  animation: movebanner 2.5s 0.6s;
+}
+
+.banner button {
+  background-color: #6c19d8;
+  border-radius: 0.4rem;
+  font-family: var(--font-action);
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s;
+  animation: movebanner 2.5s 0.8s;
+}
+
+.banner button:hover {
+  color: #000;
+}
+
+@keyframes movebanner {
+  0% {
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ---------------- */
+/* MENU ASIDE CORPO */
+/* ---------------- */
+
+@media (min-width: 992px) {
+  .navbar {
+    width: 25%;
+    height: 100vh;
+    right: -100%;
+    transition: right 0.4s ease-in-out;
+  }
+  .show-menu .navbar,
+  .show-menu .social-media {
+    right: 0;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navbar {
+    width: 100%;
+  }
+}
+
+.navbar {
+  background-color: #11a4f8;
+  z-index: 80;
+}
+
+.social-media {
+  right: -100%;
+  bottom: 3rem;
+  z-index: 100;
+  transition: right 0.4s ease-in-out;
+}
+
+.social-media i {
+  width: 3rem;
+  height: 3rem;
+  color: rgb(157, 117, 223);
+  transition: all 0.5s;
+}
+
+.social-media i:hover {
+  color: #fff;
+}
+
+/* ------------ */
+/* PROFISSIONAL */
+/* ------------ */
+
+.hab-info {
+  background-color: #6c19d8;
+  border-radius: 0.4rem;
+  color: #d9d9d9;
+  transition: background 0.5s;
+}
+
+.hab-info:hover {
+  background-color: #023e73;
+}
+
+/* ---------------- */
+/* AREA DE PROJETOS */
+/* ---------------- */
+
+.card {
+  width: 260px;
+  height: 346px;
+}
+
+.card-img-wrapper img {
+  border-radius: 0.4rem;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.5s;
+}
+
+.card:hover .card-img-wrapper img {
+  opacity: 0.5;
+}
+
+.hover {
+  bottom: 0rem;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.hover button {
+  background-color: #6c19d8;
+  font-family: var(--font-action);
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.hover button:hover {
+  color: #000;
+}
+
+.card:hover .hover {
+  bottom: 2rem;
+  opacity: 1;
+  visibility: visible;
+}
+
+.card-body-link {
+  bottom: 2rem;
+}
+
+.card-body-link button {
+  background-color: #6c19d8;
+  border-radius: 0.4rem;
+  font-family: var(--font-action);
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.card-body-link button:hover {
+  color: #000;
+}
+
+/* -------- */
+/* CONTATOS */
+/* -------- */
+
+#contato {
+  background-image: url("img/contatobg.png");
+  background-color: #022340;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.contato-wrapper {
+  border-radius: 0.4rem;
+  background-color: #ddd;
+  width: 100%;
+  height: 100%;
+}
+
+.input {
+  background: transparent;
+  font-family: var(--font-action);
+  border: 0;
+  border-bottom: 0.15rem solid #000;
+  border-width: 2px;
+  outline: none;
+}
+
+.input:focus,
+.input:active {
+  border-bottom-style: dashed;
+  border-width: 2px;
+}
+
+#mensagem {
+  background: transparent;
+  font-family: var(--font-action);
+  min-height: 2rem;
+  max-height: 7rem;
+  border: 0;
+  border-bottom: 0.15rem solid #000;
+  outline: none;
+}
+
+.info button {
+  background-color: #6c19d8;
+  border-radius: 0.4rem;
+  font-family: var(--font-action);
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.info button:hover {
+  color: #000;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 992px) {
+  .contato-wrapper {
+    width: 50%;
+    height: 85%;
+  }
+  .contato-wrapper form label {
+    font-size: 1.3rem;
+  }
+
+  .input {
+    font-size: 1.3rem;
+    padding: 0.5rem 0;
+  }
+
+  #mensagem {
+    font-size: 1.3rem;
+    min-height: 5rem;
+    max-height: 5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contato-wrapper {
+    width: 40%;
+  }
+}
+
+/* ------ */
+/* FOOTER */
+/* ------ */
+
+footer {
+  background-color: #011526;
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+@media (min-width: 992px) {
+  footer {
+    height: 2rem;
+  }
+}
+
+footer i {
+  font-size: 15px;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+footer i:hover {
+  color: #000;
+}
+
+#link-topo {
+  width: 3rem;
+  height: 3rem;
+  right: 2.5rem;
+  bottom: 3rem;
+  color: #111;
+}
+
+.social-foot i {
+  width: 4rem;
+  height: 4rem;
+  color: #aaa;
+  transition: all 0.5s;
+}
+
+.social-foot i:hover {
+  color: #fff;
+}
